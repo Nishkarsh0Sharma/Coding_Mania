@@ -100,7 +100,20 @@ int R1Max(struct Node *p)
      return INT_MIN;
     x=RMax(p->next);
     return x>p->data?x:p->data;
+    //TERNARY OPERATOR USED "?:"
 }
+
+struct Node *Lsearch(struct Node *p,int key)
+{
+    while(p!=0)
+    {
+        if(key==p->data)
+         return (p);
+        p=p->next;
+    } return NULL;
+}
+
+
 
 void display(struct Node *p)
 {
@@ -122,10 +135,10 @@ void Rdisplay(struct Node *p)
 
 int main()
 {
-    int A[]={3,5,7};
+    int A[]={3,5,7,11,8,9,15,2};
     struct Node *temp;
     
-    create(A,3);
+    create(A,8);
     printf("the max number is %d\n",R1Max(first));
     display(first);
 
