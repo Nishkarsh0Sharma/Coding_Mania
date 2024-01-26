@@ -122,6 +122,24 @@ struct Node *RLsearch(struct Node *p,int key)
     return RLsearch(p->next,key);
 }
 
+//There are two method in Linear Search :
+//1.Transpolation (Don't use in LL because we prefer movement of nodes rather than data.)
+//2.Move-to-Head (Below)
+struct Node *HLsearch(struct Node *p,int key)
+{
+    struct Node *q;
+    while(p!=NULL)
+    {
+        if(key==p->data)
+        {
+            q->next=p->next;
+            p->next=first;
+            first=p;
+        } q=p;
+        p=p->next;
+    }
+}
+
 void display(struct Node *p)
 {
     while(p!=NULL)
@@ -147,7 +165,8 @@ int main()
     
     create(A,8);
     printf("the max number is %d\n",R1Max(first));
-    temp=RLsearch(first,8);
+    temp=HLsearch(first,15);
+    temp=HLsearch(first,8);
     if(temp)
      printf("Key is Found %d\n",temp->data);
     else
