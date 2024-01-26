@@ -140,6 +140,11 @@ int main()
     
     create(A,8);
     printf("the max number is %d\n",R1Max(first));
+    temp=Lsearch(first,8);
+    if(temp)
+     printf("Key is Found %d\n",temp->data);
+    else
+     printf("Key is not Found\n");
     display(first);
 
     return 0;
