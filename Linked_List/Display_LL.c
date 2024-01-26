@@ -110,11 +110,11 @@ void Rdisplay(struct Node *p)
 
 int main()
 {
-    int A[]={3,5,10,8,4,12,7,2};
+    int A[]={3,5,7,10,15,8,12,2};
     struct Node *temp;
     
     create(A,8);
-    RMax(first);
+    printf("the max number is %d\n",Max(first));
     display(first);
 
     return 0;
