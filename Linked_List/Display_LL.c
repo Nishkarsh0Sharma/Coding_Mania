@@ -140,6 +140,29 @@ struct Node *HLsearch(struct Node *p,int key)
     }
 }
 
+void insert(struct Node *p,int index,int x)
+{
+    struct Node *t;
+    if(index<0 || index>count(first))return;
+    t=(struct Node *)malloc(sizeof(struct Node));
+    t->data=x;
+    if(index==0)
+    {
+        t->next=first;
+        first=t;
+    }
+    else
+    {
+        for(int i=0;i<index-1;i++)
+         p=p->next;
+        if(p)
+        {
+            t->next=p->next;
+            p->next=t;
+        }
+    }
+}
+
 void display(struct Node *p)
 {
     while(p!=NULL)
@@ -160,17 +183,20 @@ void Rdisplay(struct Node *p)
 
 int main()
 {
-    int A[]={3,5,7,11,8,9,15,2};
-    struct Node *temp;
-    
-    create(A,8);
-    printf("the max number is %d\n",R1Max(first));
-    temp=HLsearch(first,15);
-    temp=HLsearch(first,8);
-    if(temp)
-     printf("Key is Found %d\n",temp->data);
-    else
-     printf("Key is not Found\n");
+    // int A[]={3,5,7,11,8,9,15,2};
+    // struct Node *temp;
+    // printf("the count is %d \n",count(first));
+    // create(A,8);
+    // printf("the max number is %d\n",R1Max(first));
+    // temp=HLsearch(first,15);
+    // temp=HLsearch(first,8);
+    // if(temp)
+    //  printf("Key is Found %d\n",temp->data);
+    // else
+    //  printf("Key is not Found\n");
+    insert(first,0,10);
+    insert(first,1,20);
+    insert(first,2,30);
     display(first);
 
     return 0;
