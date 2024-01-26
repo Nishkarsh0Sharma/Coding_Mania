@@ -113,7 +113,14 @@ struct Node *Lsearch(struct Node *p,int key)
     } return NULL;
 }
 
-
+struct Node *RLsearch(struct Node *p,int key)
+{
+    if(p==NULL)
+     return NULL;
+    if(key==p->data)
+     return p;
+    return RLsearch(p->next,key);
+}
 
 void display(struct Node *p)
 {
@@ -140,7 +147,7 @@ int main()
     
     create(A,8);
     printf("the max number is %d\n",R1Max(first));
-    temp=Lsearch(first,8);
+    temp=RLsearch(first,8);
     if(temp)
      printf("Key is Found %d\n",temp->data);
     else
