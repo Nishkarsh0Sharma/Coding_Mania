@@ -83,11 +83,23 @@ int RMax(struct Node *p)
     int x=0;
     if(p==0)
      return INT_MIN;
-    x=RMax(p->next);
-    if(x>p->data)
-     return x;
     else 
-     return p->data;
+    {
+        x=RMax(p->next);
+        if(x>p->data)
+         return x;
+        else 
+         return p->data;
+    }
+}
+
+int R1Max(struct Node *p)
+{
+    int x=0;
+    if(p==0)
+     return INT_MIN;
+    x=RMax(p->next);
+    return x>p->data?x:p->data;
 }
 
 void display(struct Node *p)
@@ -110,11 +122,11 @@ void Rdisplay(struct Node *p)
 
 int main()
 {
-    int A[]={3,5,7,10,15,8,12,2};
+    int A[]={3,5,7};
     struct Node *temp;
     
-    create(A,8);
-    printf("the max number is %d\n",Max(first));
+    create(A,3);
+    printf("the max number is %d\n",R1Max(first));
     display(first);
 
     return 0;
