@@ -316,6 +316,18 @@ void Reverse2(struct Node *p)
     first=q;
 }
 
+//Recursive version of reversing a LL
+void Reverse3(struct Node *q,struct Node *p)
+{
+    if(p)
+    {
+        Reverse3(p,p->next);
+        p->next=q;
+    }
+    else
+     first=q;
+}
+
 void display(struct Node *p)
 {
     while(p!=NULL)
@@ -348,7 +360,7 @@ int main()
     // else
     //  printf("Key is not Found\n");
     
-    Reverse2(first);
+    Reverse3(NULL,first);
     // printf("%d\n",CheckSorted(first));
     display(first);
     
