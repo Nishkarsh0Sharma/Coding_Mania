@@ -281,7 +281,7 @@ void removeDuplicate(struct Node *p)
 
 //Reversing a LL
 //1.Reversing elements:
-//2.Reversing links:
+//2.Reversing links:(3 sliding pointers)
 void Reverse1(struct Node *p)
 {
     int *A,i=0;
@@ -303,7 +303,18 @@ void Reverse1(struct Node *p)
     }
 }
 
-
+void Reverse2(struct Node *p)
+{
+    struct Node *q=NULL,*r=NULL;
+    while(p!=NULL)
+    {
+        r=q;
+        q=p;
+        p=p->next;
+        q->next=r;
+    }
+    first=q;
+}
 
 void display(struct Node *p)
 {
@@ -337,7 +348,7 @@ int main()
     // else
     //  printf("Key is not Found\n");
     
-    Reverse1(first);
+    Reverse2(first);
     // printf("%d\n",CheckSorted(first));
     display(first);
     
