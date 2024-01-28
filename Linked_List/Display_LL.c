@@ -163,6 +163,23 @@ void insert(struct Node *p,int index,int x)
     }
 }
 
+void insertLast(int x)
+{
+    struct Node *t,*last;
+    t=(struct Node *)malloc(sizeof(struct Node));
+    t->data=x;
+    t->next=NULL;
+    if(first==NULL)
+    {
+        first=last=t;
+    }
+    else 
+    {
+        last->next=t;
+        last=t;
+    }
+}
+
 void display(struct Node *p)
 {
     while(p!=NULL)
@@ -194,9 +211,9 @@ int main()
     //  printf("Key is Found %d\n",temp->data);
     // else
     //  printf("Key is not Found\n");
-    insert(first,0,10);
-    insert(first,1,20);
-    insert(first,2,30);
+    insertLast(10);
+    insertLast(20);
+    insertLast(30);
     display(first);
 
     return 0;
