@@ -209,6 +209,42 @@ void SortedInsert(struct Node *p,int x)
     }
 }
 
+//Deleting from LL :
+//1.Delete first Node
+//2.Delete a Node from a given position
+int delete(struct Node *p,int index)
+{
+    struct Node *q=NULL;
+    int x=-1;
+    if(index<1 || index>count(first))
+     return -1;
+    if(index==1)
+    {
+        q=first;
+        first=first->next;
+        x=p->data;
+        free (p);
+        return x;
+    }
+    else
+    {
+        struct Node *q=NULL;
+        for(int i=0 ; i<index-1 && p ;i++)
+        {
+            q=p;
+            p=p->next;
+        }
+        if(p)
+        {
+            q->next=p->next;
+            x=p->data;
+            free (p);
+            return x;
+        }
+    }
+}
+
+
 void display(struct Node *p)
 {
     while(p!=NULL)
@@ -229,10 +265,10 @@ void Rdisplay(struct Node *p)
 
 int main()
 {
-    // int A[]={3,5,7,11,8,9,15,2};
+    int A[]={3,5,7,11,8,9,15,2};
     // struct Node *temp;
     // printf("the count is %d \n",count(first));
-    // create(A,8);
+    create(A,8);
     // printf("the max number is %d\n",R1Max(first));
     // temp=HLsearch(first,15);
     // temp=HLsearch(first,8);
@@ -240,10 +276,11 @@ int main()
     //  printf("Key is Found %d\n",temp->data);
     // else
     //  printf("Key is not Found\n");
-    SortedInsert(first,10);
-    SortedInsert(first,20);
-    SortedInsert(first,30);
+    
+    printf("before deleted \n");
     display(first);
-
+    printf("\ndeleted element is %d\n",delete(first,4));
+    display(first);
+    
     return 0;
 }

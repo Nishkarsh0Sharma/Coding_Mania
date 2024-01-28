@@ -1,2 +1,1 @@
-    SortedInsert(first,20);
-    SortedInsert(first,30);
+delete(4);
