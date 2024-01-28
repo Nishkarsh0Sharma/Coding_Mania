@@ -180,6 +180,35 @@ void insertLast(int x)
     }
 }
 
+// Inserting in a Sorted LL
+void SortedInsert(struct Node *p,int x)
+{
+    struct Node *q,*t;
+    t=(struct Node *)malloc(sizeof(struct Node));
+    t->data=x;
+    t->next=NULL;
+    if(first==NULL)
+     first=t;
+    else
+    {
+        while(p && p->data<x)
+        {
+            q=p;
+            p=p->next;
+        }
+        if(p==first)
+        {
+            t->next=first;
+            first=t;
+        }
+        else
+        {
+            t->next=q->next;
+            q->next=t;
+        }
+    }
+}
+
 void display(struct Node *p)
 {
     while(p!=NULL)
@@ -211,9 +240,9 @@ int main()
     //  printf("Key is Found %d\n",temp->data);
     // else
     //  printf("Key is not Found\n");
-    insertLast(10);
-    insertLast(20);
-    insertLast(30);
+    SortedInsert(first,10);
+    SortedInsert(first,20);
+    SortedInsert(first,30);
     display(first);
 
     return 0;

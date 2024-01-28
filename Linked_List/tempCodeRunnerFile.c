@@ -1,2 +1,2 @@
-    // insertLast(20);
-    // insertLast(30);
+    SortedInsert(first,20);
+    SortedInsert(first,30);
