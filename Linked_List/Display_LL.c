@@ -259,6 +259,26 @@ int CheckSorted(struct Node *p)
     }return 1;
 }
 
+//Remove Duplicates from Sorted LL
+void removeDuplicate(struct Node *p)
+{
+    struct Node *q=first->next;
+    while(q!=NULL)
+    {
+        if(p->data!=q->data)
+        {
+            p=q;
+            q=q->next;
+        }
+        else
+        {
+            p->next=q->next;
+            free (q);
+            q=p->next;
+        }
+    }
+}
+
 void display(struct Node *p)
 {
     while(p!=NULL)
@@ -279,10 +299,10 @@ void Rdisplay(struct Node *p)
 
 int main()
 {
-    int A[]={3,5,7,11,15,20};
+    int A[]={10,10,10,20,20,30,40};
     // struct Node *temp;
     // printf("the count is %d \n",count(first));
-    create(A,6);
+    create(A,7);
     // printf("the max number is %d\n",R1Max(first));
     // temp=HLsearch(first,15);
     // temp=HLsearch(first,8);
@@ -291,9 +311,9 @@ int main()
     // else
     //  printf("Key is not Found\n");
     
-    CheckSorted(first);
-    printf("%d\n",CheckSorted(first));
-    // display(first);
+    removeDuplicate(first);
+    // printf("%d\n",CheckSorted(first));
+    display(first);
     
     return 0;
 }
