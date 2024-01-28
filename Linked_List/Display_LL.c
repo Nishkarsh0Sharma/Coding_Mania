@@ -244,6 +244,20 @@ int delete(struct Node *p,int index)
     }
 }
 
+int CheckSorted(struct Node *p)
+{
+    int x=INT_MIN;
+    while(p!=NULL)
+    {
+        if(p->data<x)
+         return 0;
+        else 
+        {
+            x=p->data;
+            p=p->next;
+        }
+    }return 1;
+}
 
 void display(struct Node *p)
 {
@@ -265,10 +279,10 @@ void Rdisplay(struct Node *p)
 
 int main()
 {
-    int A[]={3,5,7,11,8,9,15,2};
+    int A[]={3,5,7,11,15,20};
     // struct Node *temp;
     // printf("the count is %d \n",count(first));
-    create(A,8);
+    create(A,6);
     // printf("the max number is %d\n",R1Max(first));
     // temp=HLsearch(first,15);
     // temp=HLsearch(first,8);
@@ -277,10 +291,9 @@ int main()
     // else
     //  printf("Key is not Found\n");
     
-    printf("before deleted \n");
-    display(first);
-    printf("\ndeleted element is %d\n",delete(first,4));
-    display(first);
+    CheckSorted(first);
+    printf("%d\n",CheckSorted(first));
+    // display(first);
     
     return 0;
 }
