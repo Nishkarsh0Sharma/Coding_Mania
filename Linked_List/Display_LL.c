@@ -279,6 +279,32 @@ void removeDuplicate(struct Node *p)
     }
 }
 
+//Reversing a LL
+//1.Reversing elements:
+//2.Reversing links:
+void Reverse1(struct Node *p)
+{
+    int *A,i=0;
+    struct Node *q=p;
+    A=(int *)malloc(sizeof(int)*count(p));
+    while(q!=NULL)
+    {
+        A[i]=q->data;
+        q=q->next;
+        i++;
+    }
+    q=first;
+    i--;
+    while(q!=NULL)
+    {
+        q->data=A[i];
+        q=q->next;
+        i--;
+    }
+}
+
+
+
 void display(struct Node *p)
 {
     while(p!=NULL)
@@ -299,10 +325,10 @@ void Rdisplay(struct Node *p)
 
 int main()
 {
-    int A[]={10,10,10,20,20,30,40};
+    int A[]={10,20,30,40};
     // struct Node *temp;
     // printf("the count is %d \n",count(first));
-    create(A,7);
+    create(A,4);
     // printf("the max number is %d\n",R1Max(first));
     // temp=HLsearch(first,15);
     // temp=HLsearch(first,8);
@@ -311,7 +337,7 @@ int main()
     // else
     //  printf("Key is not Found\n");
     
-    removeDuplicate(first);
+    Reverse1(first);
     // printf("%d\n",CheckSorted(first));
     display(first);
     

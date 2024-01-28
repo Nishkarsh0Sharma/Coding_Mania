@@ -1,1 +1,1 @@
-delete(4);
+Reverse1(first);
