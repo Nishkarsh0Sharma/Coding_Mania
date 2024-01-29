@@ -7,7 +7,7 @@ struct Node
     struct Node *next;
 }
 
-*first=NULL;
+*first=NULL,*second=NULL,*third=NULL;
 
 void create(int A[],int n)
 {
@@ -17,6 +17,25 @@ void create(int A[],int n)
     first->data=A[0];
     first->next=NULL;
     last=first;
+
+    for(i=1;i<n;i++)
+    {
+        t=(struct Node *)malloc(sizeof(struct Node));
+        t->data=A[i];
+        t->next=NULL;
+        last->next=t;
+        last=t;
+    }
+}
+
+void create2(int A[],int n)
+{
+    int i;
+    struct Node *t,*last;
+    second=(struct Node *)malloc(sizeof(struct Node));
+    second->data=A[0];
+    second->next=NULL;
+    last=second;
 
     for(i=1;i<n;i++)
     {
@@ -328,6 +347,17 @@ void Reverse3(struct Node *q,struct Node *p)
      first=q;
 }
 
+void concat(struct Node *p,struct Node *q)
+{
+    third=p;
+    while(p->next!=NULL)
+    {
+        p=p->next;
+    }
+    p->next=q;
+    q=NULL;
+}
+
 void display(struct Node *p)
 {
     while(p!=NULL)
@@ -349,9 +379,11 @@ void Rdisplay(struct Node *p)
 int main()
 {
     int A[]={10,20,30,40};
+    int B[]={50,60,35,44,58};
     // struct Node *temp;
     // printf("the count is %d \n",count(first));
     create(A,4);
+    create2(B,5);
     // printf("the max number is %d\n",R1Max(first));
     // temp=HLsearch(first,15);
     // temp=HLsearch(first,8);
@@ -360,9 +392,18 @@ int main()
     // else
     //  printf("Key is not Found\n");
     
-    Reverse3(NULL,first);
+    // Reverse3(NULL,first);
     // printf("%d\n",CheckSorted(first));
-    display(first);
+    concat(first,second);
+    printf("\n\n");
+    
+    // printf("first\n");
+    display(third);
+    // printf("\n\n");
+    
+    // printf("second\n");
+    // display(second);
+    // printf("\n\n");
     
     return 0;
 }
