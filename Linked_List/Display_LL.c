@@ -396,6 +396,20 @@ void merge(struct Node *p,struct Node *q)
      last->next=q;
 }
 
+int isLoop(struct Node *f)
+{
+    struct Node *p,*q;
+    p=q=f;
+    do
+    {
+        p=p->next;
+        q=q->next;
+        q=q!=NULL?q->next:q;
+    }
+    while(p && q && p!=q);
+    return p==q?1:0;
+}
+
 void display(struct Node *p)
 {
     while(p!=NULL)
@@ -417,11 +431,11 @@ void Rdisplay(struct Node *p)
 int main()
 {
     int A[]={10,20,30,40,50};
-    int B[]={5,15,28,45,60};
+    // int B[]={5,15,28,45,60};
     // struct Node *temp;
     // printf("the count is %d \n",count(first));
     create(A,5);
-    create2(B,5);
+    // create2(B,5);
     // printf("the max number is %d\n",R1Max(first));
     // temp=HLsearch(first,15);
     // temp=HLsearch(first,8);
@@ -433,9 +447,15 @@ int main()
     // Reverse3(NULL,first);
     // printf("%d\n",CheckSorted(first));
     // concat(first,second);
-    merge(first,second);
-    printf("\n\n");
+    // merge(first,second);
+    // printf("\n\n");
     
+    struct Node *t1,*t2;
+    t1=first->next->next;
+    t2=first->next->next->next->next;
+    t2->next=t1;
+    printf("%d\n ",isLoop(first));
+
     // printf("first\n");
     display(third);
     // printf("\n\n");
