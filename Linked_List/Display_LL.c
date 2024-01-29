@@ -358,6 +358,44 @@ void concat(struct Node *p,struct Node *q)
     q=NULL;
 }
 
+void merge(struct Node *p,struct Node *q)
+{
+    struct Node *last;
+    if(p->data < q->data)
+    {
+        third=last=p;
+        p=p->next;
+        last->next=NULL;
+    }
+    else
+    {
+        third=last=q;
+        q=q->next;
+        last->next=NULL;
+    }
+    while(p!=NULL && q!=NULL)
+    {
+        if(p->data < q->data)
+        {
+            last->next=p;
+            last=p;
+            p=p->next;
+            last->next=NULL;
+        }
+        else
+        {
+            last->next=q;
+            last=q;
+            q=q->next;
+            last->next=NULL;
+        }
+    }
+    if(p!=NULL)
+     last->next=p;
+    else 
+     last->next=q;
+}
+
 void display(struct Node *p)
 {
     while(p!=NULL)
@@ -378,11 +416,11 @@ void Rdisplay(struct Node *p)
 
 int main()
 {
-    int A[]={10,20,30,40};
-    int B[]={50,60,35,44,58};
+    int A[]={10,20,30,40,50};
+    int B[]={5,15,28,45,60};
     // struct Node *temp;
     // printf("the count is %d \n",count(first));
-    create(A,4);
+    create(A,5);
     create2(B,5);
     // printf("the max number is %d\n",R1Max(first));
     // temp=HLsearch(first,15);
@@ -394,7 +432,8 @@ int main()
     
     // Reverse3(NULL,first);
     // printf("%d\n",CheckSorted(first));
-    concat(first,second);
+    // concat(first,second);
+    merge(first,second);
     printf("\n\n");
     
     // printf("first\n");
