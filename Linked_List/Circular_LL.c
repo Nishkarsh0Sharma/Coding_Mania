@@ -51,10 +51,23 @@ void RDisplay(struct Node *h)
     flag=0;
 }
 
+int lenght(struct Node *h)
+{
+    int len=0;
+    do 
+    {
+        len++;
+        h=h->next;
+    }
+    while(h!=Head);
+    return len;
+}
+
 int main()
 {
     int A[]={2,3,4,5,6};
     create(A,5);
+    printf("Number of elements in circular LL is %d \n",lenght(Head));
     RDisplay(Head);
     return 0;
 }
