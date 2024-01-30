@@ -63,6 +63,10 @@ int lenght(struct Node *h)
     return len;
 }
 
+
+//Inserting in a circular LL
+//1.Inserting before Head
+// 2.Inserting in other position
 void insert(struct Node *p , int index , int x)
 {
     struct Node *t;
@@ -96,6 +100,9 @@ void insert(struct Node *p , int index , int x)
     }
 }
 
+//Deleting from circular LL:
+// 1.Deleting Head node
+// 2.Deleting a node from given position
 int Delete(struct Node *p,int index)
 {
     struct Node *q;
