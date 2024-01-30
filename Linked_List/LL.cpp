@@ -1,3 +1,4 @@
+#include<stdio.h>
 #include<iostream>
 using namespace std;
 
@@ -32,7 +33,7 @@ LinkedList::LinkedList(int A[],int n)
     first->next=NULL;
     last=first;
 
-    for(i=0;i<n;i++)
+    for(i=1;i<n;i++)
     {
         t=new Node;
         t->data=A[i];
@@ -129,7 +130,7 @@ int main()
 {
     int A[]={1,2,3,4,5};
     LinkedList l(A,5);
-    l.insert(3,10);
+    l.insert(4,10);
     l.display();
     return 0;
 }
