@@ -6,7 +6,7 @@ struct Node
     int data;
     struct Node *next;
 }
-*Head;
+*Head=NULL;
 
 void create(int A[],int n)
 {
@@ -63,11 +63,48 @@ int lenght(struct Node *h)
     return len;
 }
 
+void insert(struct Node *p , int index , int x)
+{
+    struct Node *t;
+    int i;
+    if(index<0 || index >lenght(p))
+     return 0;
+    if(index==0)
+    {
+        t=(struct Node *)malloc(sizeof(struct Node));
+        t->data=x;
+        if(Head==NULL)
+        {
+            Head=t;
+            Head->next=Head;
+        }
+        else
+        {
+            while(p->next!=Head)p=p->next;
+            p->next=t;
+            t->next=Head;
+            Head=t;
+        }
+    }
+    else
+    {
+        for(i=0;i<index-1;i++)p=p->next;
+        t=(struct Node *)malloc(sizeof(struct Node));
+        t->data=x;
+        t->next=p->next;
+        p->next=t;
+
+    }
+}
+
+
+
 int main()
 {
     int A[]={2,3,4,5,6};
     create(A,5);
-    printf("Number of elements in circular LL is %d \n",lenght(Head));
+    // printf("Number of elements in circular LL is %d \n",lenght(Head));
+    insert(Head,0,10);
     RDisplay(Head);
     return 0;
 }
