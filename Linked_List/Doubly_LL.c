@@ -40,13 +40,24 @@ void Display(struct Node *p)
     printf("\n");
 }
 
+int lenght(struct Node *p)
+{
+    int len=0;
+    p=first;
+    while(p)
+    {
+        len++;
+        p=p->next;
+    }
+    return len;
+}
 
 
 int main()
 {
     int A[]={8,2,3,9,4,1};
     create(A,6);
-    // printf("number of element is: %d \n",lenght(first));
+    printf("number of element is: %d \n",lenght(first));
     Display(first);
     return 0;
 }
