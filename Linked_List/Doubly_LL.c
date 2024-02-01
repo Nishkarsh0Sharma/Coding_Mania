@@ -66,9 +66,9 @@ void insert(struct Node *p,int index ,int x)
     {
         t->data=x;
         t->pre=NULL;
+        t->next=NULL;
         if(first==NULL)
         {
-            first->next=NULL;
             first=t;
         }
         else
@@ -117,6 +117,25 @@ int Delete(int index)
     }return x;
 }
 
+void reverse(struct Node *p)
+{
+    struct Node *temp;
+    p=first;
+    while(p!=NULL)
+    {
+        temp=p->next;
+        p->next=p->pre;
+        p->pre=temp;
+        p=p->pre;
+        if(p!=NULL && p->next==NULL)
+        {
+            p->next = p->pre;
+            p->pre = NULL;
+            first = p;
+        }
+    }
+}
+
 int main()
 {
     int A[]={8,2,3,9,4,1};
@@ -127,6 +146,7 @@ int main()
     Display(first);
     printf("\n");
     Delete(0);
+    // reverse(first);
     Display(first);
     return 0;
 }
