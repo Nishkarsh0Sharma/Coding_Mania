@@ -54,8 +54,8 @@ int lenght(struct Node *p)
 }
 
 //Inserting in a Doubly LL
-//1.Before first Node.
-//2.At any position
+//1.Before first Node. (taking O(1) time)
+//2.At any position. (taking O(n) time at worst case)
 void insert(struct Node *p,int index ,int x)
 {
     struct Node *t;
@@ -89,7 +89,33 @@ void insert(struct Node *p,int index ,int x)
     }
 }
 
-
+//Deleting a node from a Doubly LL:
+//1.Delete first Node .(taking O(1) time)
+//2.Delete from any position. (taking O(n) time at worst case)
+int Delete(int index)
+{
+    struct Node *p;
+    int x=-1;
+    if( index < 0 || index > lenght(first))
+     return x;
+    p=(struct Node *)malloc(sizeof(struct Node));
+    if(index==0)
+    {
+        p=first;
+        first=first->next;
+        x=p->data;
+        free (p);
+    }
+    else
+    {
+        p=first;
+        for(int i=0;i<index-1;i++)p=p->next;
+        p->pre->next=p->next;
+        if(p->next)p->next->pre=p->pre;
+        x=p->data;
+        free (p);
+    }return x;
+}
 
 int main()
 {
@@ -98,6 +124,9 @@ int main()
     printf("number of element is: %d \n",lenght(first));
     insert(first,0,11);
     insert(first,7,99);
+    Display(first);
+    printf("\n");
+    Delete(0);
     Display(first);
     return 0;
 }
