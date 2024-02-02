@@ -120,7 +120,6 @@ int Delete(int index)
 void reverse(struct Node *p)
 {
     struct Node *temp;
-    p=first;
     while(p!=NULL)
     {
         temp=p->next;
