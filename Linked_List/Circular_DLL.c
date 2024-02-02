@@ -41,16 +41,27 @@ void Display(struct Node *p)
     printf("\n");
 }
 
+int lenght(struct Node *p)
+{
+    int len=0;
+    do
+    {
+        len++;
+        p=p->next;
+    }
+    while(p!=Head);
+    return len;
+}
 
 int main()
 {
     int A[]={8,2,3,9,4,1};
     create(A,6);
-    // printf("number of element is: %d \n",lenght(Head));
+    printf("number of element is: %d \n",lenght(Head));
     // insert(Head,0,11);
     // insert(Head,7,99);
     // Display(Head);
-    // printf("\n");
+    printf("\n");
     // Delete(0);
     // reverse(Head);
     Display(Head);

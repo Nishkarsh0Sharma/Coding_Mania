@@ -140,7 +140,7 @@ int main()
 {
     int A[]={2,3,4,5,6};
     create(A,5);
-    // printf("Number of elements in circular LL is %d \n",lenght(Head));
+    // printf("Number of elements in circular LL is %d \n",length(Head));
     // insert(Head,0,10);
     Delete(Head,1);
     printf("\n\n");
