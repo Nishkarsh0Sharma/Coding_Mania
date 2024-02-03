@@ -82,6 +82,14 @@ int isEmpty(struct stack st)
         return 0;
 }
 
+int isFull(struct stack st)
+{
+    if(st.Top==st.size-1)
+        return 1;
+    else
+        return 0;
+}
+
 int main()
 {
     struct stack st;
@@ -98,6 +106,7 @@ int main()
     printf("peaking value is : %d\n",peak(st,3));
     printf("stackTop value is : %d\n",stackTop(st));
     printf("Is stack isEmpty ? : %d\n",isEmpty(st));
+    printf("Is stack isFull ? : %d\n",isFull(st));
     Display(st);
     return 0;
 };
