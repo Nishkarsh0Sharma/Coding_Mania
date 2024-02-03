@@ -102,6 +102,7 @@ int main()
 
     printf("poping value is : %d\n",pop(&st));
     printf("poping value is : %d\n",pop(&st));
+    Display(st);
 
     printf("peaking value is : %d\n",peak(st,3));
     printf("stackTop value is : %d\n",stackTop(st));
