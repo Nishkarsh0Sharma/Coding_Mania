@@ -74,6 +74,14 @@ int stackTop(struct stack st)
         return st.S[st.Top];
 }
 
+int isEmpty(struct stack st)
+{
+    if(st.Top==-1)
+        return 1;
+    else
+        return 0;
+}
+
 int main()
 {
     struct stack st;
@@ -89,6 +97,7 @@ int main()
 
     printf("peaking value is : %d\n",peak(st,3));
     printf("stackTop value is : %d\n",stackTop(st));
+    printf("Is stack isEmpty ? : %d\n",isEmpty(st));
     Display(st);
     return 0;
 };
