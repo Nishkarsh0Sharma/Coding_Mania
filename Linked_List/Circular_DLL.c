@@ -53,6 +53,42 @@ int lenght(struct Node *p)
     return len;
 }
 
+//Inserting in a Circular Doubly LL
+//1.Before Head Node. (taking O(1) time)
+//2.At any position. (taking O(n) time at worst case)
+void insert(struct Node *p,int index ,int x)
+{
+    struct Node *t;
+    if( index < 0 || index > lenght(Head))
+     return ;
+    t=(struct Node *)malloc(sizeof(struct Node));
+    if(index==0)
+    {
+        t->data=x;
+        t->pre=NULL;
+        t->next=NULL;
+        if(Head==NULL)
+        {
+            Head=t;
+        }
+        else
+        {
+            t->next=Head;
+            Head->pre=t;
+            Head=t;
+        }
+    }
+    else 
+    {
+        for(int i=0;i<index-1;i++)p=p->next;
+        t->data=x;
+        t->next=p->next;
+        t->pre=p;
+        if(p->next)p->next->pre=t;
+        p->next=t;
+    }
+}
+
 int main()
 {
     int A[]={8,2,3,9,4,1};
