@@ -66,6 +66,14 @@ int peak(struct stack st,int pos)
     return x;
 }
 
+int stackTop(struct stack st)
+{
+    if(st.Top==-1)
+        return -1;
+    else 
+        return st.S[st.Top];
+}
+
 int main()
 {
     struct stack st;
@@ -76,10 +84,11 @@ int main()
     push(&st,40);
     push(&st,50);
 
-    // printf("poping value is : %d\n",pop(&st));
-    // printf("poping value is : %d\n",pop(&st));
+    printf("poping value is : %d\n",pop(&st));
+    printf("poping value is : %d\n",pop(&st));
 
     printf("peaking value is : %d\n",peak(st,3));
+    printf("stackTop value is : %d\n",stackTop(st));
     Display(st);
     return 0;
 };
