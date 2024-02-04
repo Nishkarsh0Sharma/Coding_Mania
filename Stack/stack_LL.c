@@ -11,13 +11,28 @@ struct Node
 void push(int x)
 {
     struct Node *t=(struct Node *)malloc(sizeof(struct Node));
-    if(t==NULL)printf("stack overflow\n");
+    if(t==NULL)printf("stack overflow\n"); //this case happen when heap memory is full.
     else
     {
         t->data=x;
         t->next=Top;
         Top=t;
     }
+}
+
+int pop()
+{
+    struct Node *p;
+    int x=-1;
+    if(Top==NULL)printf("stack underflow\n");
+    else
+    {
+        p=Top;
+        Top=Top->next;
+        x=p->data;
+        free (p);
+    }
+    return x;
 }
 
 void Display()
@@ -38,6 +53,14 @@ int main()
     push(20);
     push(30);
     push(40);
+    push(50);
+    Display();
+
+    printf("poping value is : %d\n",pop());
+    printf("poping value is : %d\n",pop());
+    printf("poping value is : %d\n",pop());
+    printf("poping value is : %d\n",pop());
+
     Display();
     return 0;
 }
