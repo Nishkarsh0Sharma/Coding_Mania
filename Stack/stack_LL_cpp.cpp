@@ -68,6 +68,33 @@ int stack::pop()
     return x;
 }
 
+int stack::isEmpty()
+{
+    return Top ? 0 : 1;
+}
+
+int stack::isFull()
+{
+    Node *t=new Node;
+    int r=t ? 1 : 0;
+    delete t;
+    return r;
+}
+
+int stack::stackTop()
+{
+    return Top ? Top->data : -1;
+}
+
+int stack::peek(int index)
+{
+    if (isEmpty()) return -1;
+    int x=-1;
+    Node *p=Top;
+    for(int i=0;i<index-1 && p!=nullptr;i++)
+        p=p->next;
+    return p ? p->data : -1;
+}
 
 void stack::Display()
 {
