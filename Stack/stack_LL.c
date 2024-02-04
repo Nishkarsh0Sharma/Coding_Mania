@@ -35,6 +35,16 @@ int pop()
     return x;
 }
 
+int peek(int pos)
+{
+    int x=-1;
+    struct Node *p=Top;
+    for(int i=0;p!=NULL && i<pos-1;i++)p=p->next;
+    if(p!=NULL)
+        return p->data;
+    return -1;
+}
+
 void Display()
 {
     struct Node *p;
@@ -60,6 +70,7 @@ int main()
     printf("poping value is : %d\n",pop());
     printf("poping value is : %d\n",pop());
     printf("poping value is : %d\n",pop());
+    printf("peeking value is : %d\n",peek(1)); 
 
     Display();
     return 0;
