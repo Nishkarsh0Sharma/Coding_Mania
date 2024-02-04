@@ -67,11 +67,59 @@ int isBalanced(char *exp)
     else return 0;
 }
 
+int isOperand(char x)
+{
+    if(x=='+' || x=='-' || x=='*' || x=='/')
+        return 0;
+    else
+        return 1;
+}
+
+int precedence(char x)
+{
+    if(x=='+' || x=='-')
+        return 1;
+    else if(x=='*' || x=='/')
+        return 2;
+    else 
+        return 0;
+}
+
+char * Infix_2_Postfix(char *Infix)
+{
+    int i,j=0;
+    char *Postfix;
+    long len=strlen(Infix);
+    Postfix=(char *)malloc((len+2)*sizeof(char));
+
+    while(Infix[i]!='\0')
+    {
+        if(isOperand(Infix[i]))
+            Postfix[j++]=Infix[i++];
+
+        else if( precedence(Infix[i]) > precedence(Top->data) )
+            push(Infix[i++]);
+        
+        else  // in case of greater or equal pop out value from stack & append in postfix
+            Postfix[j++]=pop();
+    }
+    while(Top!=NULL)
+    {
+        Postfix[j++]=pop();
+        Postfix[j]='\0';
+    }
+    return Postfix;
+
+}
+
 
 int main()
 {
-    char *exp="((a+b)*(c-d))";
-    printf("%d \n",isBalanced(exp));
-    Display();
+    char *Infix="a+b*c-d/e";
+    push('#');
+
+    char *postfix=Infix_2_Postfix(Infix);
+    printf("%s ",postfix);
+
     return 0;
 }
