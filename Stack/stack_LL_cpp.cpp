@@ -53,7 +53,33 @@ void stack::push(int x)
     }
 }
 
+int stack::pop()
+{
+    Node *p;
+    int x=-1;
+    if(Top==nullptr)cout<<("stack underflow\n");
+    else
+    {
+        p=Top;
+        Top=Top->next;
+        x=p->data;
+        delete (p);
+    }
+    return x;
+}
 
+
+void stack::Display()
+{
+    Node *p;
+    p=Top;
+    while(p!=NULL)
+    {
+        cout<<(" %d ",p->data);
+        p=p->next;
+    }
+    cout<<("\n");
+}
 
 int main()
 {
