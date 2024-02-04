@@ -28,8 +28,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/ASUS/OneDrive/Desktop/coding/Linked_List",
-      "program": "c:/Users/ASUS/OneDrive/Desktop/coding/Linked_List/build/Debug/outDebug",
+      "cwd": "c:/Users/ASUS/OneDrive/Desktop/coding/Stack",
+      "program": "c:/Users/ASUS/OneDrive/Desktop/coding/Stack/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
