@@ -45,6 +45,24 @@ int peek(int pos)
     return -1;
 }
 
+int stackTop()
+{
+    return Top ? Top->data :-1;
+}
+
+int isEmpty()
+{
+    return Top ? 0 : 1;
+}
+
+int isFull()
+{
+    struct Node *t=(struct Node *)malloc(sizeof(struct Node));
+    int r=t ? 1:0;
+    free (t);
+    return r;
+}
+
 void Display()
 {
     struct Node *p;
@@ -71,6 +89,10 @@ int main()
     printf("poping value is : %d\n",pop());
     printf("poping value is : %d\n",pop());
     printf("peeking value is : %d\n",peek(1)); 
+
+    printf("stackTop value is : %d\n",stackTop());
+    printf("isEmpty ? %d\n",isEmpty());
+    printf("isFull ?  %d\n",isFull());
 
     Display();
     return 0;
