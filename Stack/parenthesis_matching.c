@@ -4,12 +4,12 @@
 
 struct Node
 {
-    char data;
+    int data;
     struct Node *next;
 }
 *Top=NULL;
 
-void push(char x)
+void push(int x)
 {
     struct Node *t;
     t=(struct Node *)malloc(sizeof(struct Node));
@@ -22,10 +22,10 @@ void push(char x)
     }
 }
 
-char pop()
+int pop()
 {
     struct Node *p;
-    char x=-1;
+    int x=-1;
     if(Top==NULL)printf("stack underflow\n");
     else
     {
@@ -112,14 +112,34 @@ char * Infix_2_Postfix(char *Infix)
 
 }
 
+int evalPOSTFIX(char *postfix)
+{
+    int i=0;
+    int x1,x2,r=0;
+    for(i=0;postfix[i]!='\0';i++)
+    {
+        if(isOperand(postfix[i]))
+            push(postfix[i]-'0');
+        else
+        {
+            x2=pop();x1=pop();
+            switch (postfix[i])
+            {
+            case '+' : r=x1+x2 ; push(r) ;break;
+            case '-' : r=x1-x2 ; push(r) ;break;
+            case '*' : r=x1*x2 ; push(r) ;break;
+            case '/' : r=x1/x2 ; push(r) ;break;
+            }
+        }
+    }
+    return Top->data;
+}
+
 
 int main()
 {
-    char *Infix="a+b*c-d/e";
-    push('#');
-
-    char *postfix=Infix_2_Postfix(Infix);
-    printf("%s ",postfix);
+    char *postfix="35*62/+4-";
+    printf("Result is %d\n ",evalPOSTFIX(postfix));
 
     return 0;
 }
