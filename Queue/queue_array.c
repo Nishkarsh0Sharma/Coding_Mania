@@ -1,0 +1,51 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Queue
+{
+    int size;
+    int front;
+    int Rear;
+    int *Q;
+};
+
+void create(struct Queue *q,int size)
+{
+    q->size=size;
+    q->front=q->Rear=-1;
+    q->Q=(int *)malloc(q->size*sizeof(int));
+}
+
+void enqueue(struct Queue *q,int x)
+{   
+    if(q->Rear==q->size-1)
+        printf("Queue is full \n");
+    else
+    {
+        q->Rear++;
+        q->Q[q->Rear]=x;
+    }
+}
+
+void Display(struct Queue q)
+{
+    for(int i=q.front+1 ; i<=q.Rear ; i++)
+    {
+        printf("%d ",q.Q[i]);
+    }
+    printf("\n");
+}
+
+int main()
+{
+    struct Queue q;
+    create(&q,7);
+
+    enqueue(&q,10);
+    enqueue(&q,20);
+    enqueue(&q,30); 
+    
+    Display(q);
+
+    return 0;
+}
