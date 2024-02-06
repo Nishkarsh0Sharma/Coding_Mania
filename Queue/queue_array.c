@@ -27,6 +27,19 @@ void enqueue(struct Queue *q,int x)
     }
 }
 
+int dequeue(struct Queue *q)
+{
+    int x=-1;
+    if(q->front==q->Rear)
+        printf("Queue is empty");
+    else
+    {
+        q->front++;
+        x=q->Q[q->front];
+    }
+    return x;
+}
+
 void Display(struct Queue q)
 {
     for(int i=q.front+1 ; i<=q.Rear ; i++)
@@ -44,8 +57,9 @@ int main()
     enqueue(&q,10);
     enqueue(&q,20);
     enqueue(&q,30); 
-    
     Display(q);
+    
+    printf("dequeue value is :%d ",dequeue(&q));
 
     return 0;
 }
