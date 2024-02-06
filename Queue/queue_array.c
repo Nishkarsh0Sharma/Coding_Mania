@@ -49,6 +49,16 @@ void Display(struct Queue q)
     printf("\n");
 }
 
+int isEmpty(struct Queue q)
+{
+    return q.front==q.Rear ? 1 : 0;
+}
+
+int isFull(struct Queue q)
+{
+    return q.Rear==q.size-1 ? 1 : 0;
+}
+
 int main()
 {
     struct Queue q;
@@ -58,8 +68,11 @@ int main()
     enqueue(&q,20);
     enqueue(&q,30); 
     Display(q);
-    
-    printf("dequeue value is :%d ",dequeue(&q));
+
+    printf("Queue isFull : %d\n ",isFull(q));
+    printf("Queue isEmpty : %d\n ",isEmpty(q));
+
+    // printf("dequeue value is :%d ",dequeue(&q));
 
     return 0;
 }
