@@ -47,19 +47,6 @@ void Circular_Queue::enqueue(int x)
     }
 }
 
-void Circular_Queue::Display()
-{
-    int i=front+1;
-    do
-    {
-        cout<<Q[i]<<flush;
-        if(i<Rear)
-            cout<<" <- "<<flush;
-        i=(i+1)%size;
-    }while(i!=(Rear+1)%size);
-}
-
-
 int Circular_Queue::dequeue()
 {
     int x=-1;
@@ -73,6 +60,29 @@ int Circular_Queue::dequeue()
     return x;
 }
 
+bool Circular_Queue::isEmpty()
+{
+    return front==Rear ? true : false;
+}
+
+
+bool Circular_Queue::isFull()
+{
+    return (Rear+1)%size==front ? true : false;
+}
+
+
+void Circular_Queue::Display()
+{
+    int i=front+1;
+    do
+    {
+        cout<<Q[i]<<flush;
+        if(i<Rear)
+            cout<<" <- "<<flush;
+        i=(i+1)%size;
+    }while(i!=(Rear+1)%size);
+}
 
 int main()
 {
@@ -85,11 +95,11 @@ int main()
         cq.enqueue(A[i]);
     }
 
- // Display
+    // Display
     cq.Display();
     cout << endl;
 
-// Overflow
+    // Overflow
     cq.enqueue(10);
 
     // Dequeue
@@ -100,6 +110,10 @@ int main()
 
     // Underflow
     cq.dequeue();
+
+cout<<"Circular queue is isEmpty ? "<<cq.isEmpty()<<endl;
+
+cout<<"Circular queue is isFull ? "<<cq.isFull()<<endl;
 
     return 0;
 }
