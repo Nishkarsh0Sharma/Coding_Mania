@@ -59,6 +59,21 @@ void Circular_Queue::Display()
     }while(i!=(Rear+1)%size);
 }
 
+
+int Circular_Queue::dequeue()
+{
+    int x=-1;
+    if(front==Rear)
+        printf("Circular_Queue is empty \n");
+    else
+    {
+        front=(front+1)%size;
+        x=Q[front];
+    }
+    return x;
+}
+
+
 int main()
 {
     int A[]={1,3,5,7,9};
@@ -74,6 +89,17 @@ int main()
     cq.Display();
     cout << endl;
 
+// Overflow
+    cq.enqueue(10);
+
+    // Dequeue
+    for(int i=0; i < sizeof(A)/sizeof(A[0]); i++)
+    {
+        cq.dequeue();
+    }
+
+    // Underflow
+    cq.dequeue();
 
     return 0;
 }
