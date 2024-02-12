@@ -1,7 +1,7 @@
 
 // Queue Header File //
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef Queue_h
+#define Queue_h
 
 struct Node 
 {
@@ -16,7 +16,8 @@ struct Queue
     int size;
     int front;
     int Rear;
-    int **Q;    //Node type pointer to a pointer
+    struct Node **Q;    //this is a pointer array to pointer and it's going to pointer of type node
+    //Node type pointer to a pointer
 };
 
 void create(struct Queue *q,int size)
@@ -54,3 +55,5 @@ int isEmpty(struct Queue q)
 {
     return q.front==q.Rear;
 }
+
+#endif /*Queue_h*/
