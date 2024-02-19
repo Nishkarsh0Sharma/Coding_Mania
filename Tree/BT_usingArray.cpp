@@ -128,15 +128,15 @@ void preOrder(Node* p)
     }
 }
 
-// void inOrder(Node* p)
-// {
-//     if(p)
-//     {
-//         preOrder(p->lchild);
-//         cout<<p->data<<", "<<flush;
-//         preOrder(p->rchild);
-//     }
-// }
+void inOrder(Node* p)
+{
+    if(p)
+    {
+        preOrder(p->lchild);
+        cout<<p->data<<", "<<flush;
+        preOrder(p->rchild);
+    }
+}
 
 // void postOrder(Node* p)
 // {
