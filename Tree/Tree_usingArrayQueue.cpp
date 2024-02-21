@@ -85,5 +85,5 @@ public:
     ~Tree();
     void createTree();
     void preOrder(){preOrder(root);}    // Passing Private Parameter in Constructor
-    void preOrder(Node *p);
+    
 };
