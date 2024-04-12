@@ -28,8 +28,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/ASUS/OneDrive/Desktop/coding/Tree",
-      "program": "c:/Users/ASUS/OneDrive/Desktop/coding/Tree/build/Debug/outDebug",
+      "cwd": "c:/Users/ASUS/OneDrive/Desktop/coding/c",
+      "program": "c:/Users/ASUS/OneDrive/Desktop/coding/c/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

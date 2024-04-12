@@ -2,10 +2,12 @@
 
 //this is best for now .
 
-int isBalanced(char expression[]) {
+int isBalanced(char expression[]) 
+{
     int stack = 0;
 
-    for (int i = 0; expression[i] != '\0'; i++) {
+    for (int i = 0; expression[i] != '\0'; i++) 
+    {
         stack += (expression[i] == '(' || expression[i] == '{' || expression[i] == '[') ? 1 :
                  (expression[i] == ')' || expression[i] == '}' || expression[i] == ']') ? -1 : 0;
 
